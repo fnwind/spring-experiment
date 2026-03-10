@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  flyway:
+    enabled: false
+  application:
+    name: web
+  config:
+    import:
+      - classpath:application-datasource.yml
+      - classpath:application-redis.yml
+  jackson:
+    date-format: 'yyyy-MM-dd HH:mm:ss'
+    time-zone: 'GMT+8'
+    use-jackson2-defaults: false
+

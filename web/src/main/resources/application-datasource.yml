@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: Supcon1304
+    driver-class-name: org.postgresql.Driver
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 'now()'
+      logic-not-delete-value: 'null'
