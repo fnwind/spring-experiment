@@ -2,6 +2,7 @@ package org.fn.persistence.cache;
 
 import org.fn.core.common.Global;
 import org.fn.core.common.RdbIndex;
+import org.fn.persistence.cache.lock.RedisLockService;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.Cursor;
@@ -24,6 +25,7 @@ public class RedisService {
     public final RedisHashService hash;
     public final RedisSetService set;
     public final RedisZSetService zset;
+    public final RedisLockService lock;
 
     public RedisService(RedisDbManager redisDbManager) {
         this.redisDbManager = redisDbManager;
@@ -33,6 +35,7 @@ public class RedisService {
         this.hash = new RedisHashService(redisDbManager);
         this.set = new RedisSetService(redisDbManager);
         this.zset = new RedisZSetService(redisDbManager);
+        this.lock = new RedisLockService(redisDbManager);
     }
 
     public RedisTemplate<String, Object> template() {
