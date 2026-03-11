@@ -17,7 +17,7 @@ public class NotifyTest {
 
     @EventListener(ApplicationReadyEvent.class)
     public void onReady() {
-        // System.out.println("NotifyTest onReady");
+        System.out.println("NotifyTest onReady");
         // botService.sendText("aaa", "bbb");
     }
 }
