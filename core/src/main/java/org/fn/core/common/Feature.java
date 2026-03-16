@@ -11,5 +11,9 @@ public enum Feature {
     /**
      * 数据保护能力
      */
-    DATA_PROTECT
+    DATA_PROTECT,
+    /**
+     * 数据权限能力
+     */
+    DATA_PERMISSION,
 }
