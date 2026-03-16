@@ -6,6 +6,9 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * @author chenshoufeng
  * @since 2026/3/11 上午9:33
@@ -19,5 +22,7 @@ public class NotifyTest {
     public void onReady() {
         System.out.println("NotifyTest onReady");
         // botService.sendText("aaa", "bbb");
+
+        Collections.unmodifiableList(new ArrayList());
     }
 }

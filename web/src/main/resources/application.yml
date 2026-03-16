@@ -14,4 +14,9 @@ spring:
     date-format: 'yyyy-MM-dd HH:mm:ss'
     time-zone: 'GMT+8'
     use-jackson2-defaults: false
-
+notify:
+  bot:
+    type: wechat
+    wechat:
+      bots:
+        aaa: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8d187f3d-aea5-422b-8789-37029328ceb2

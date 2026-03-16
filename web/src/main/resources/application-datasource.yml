@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/demo
+    url: jdbc:postgresql://localhost:5432/experiment
     username: postgres
-    password: Supcon1304
+    password: postgres
     driver-class-name: org.postgresql.Driver
 
 mybatis-plus:
@@ -11,3 +11,7 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 'now()'
       logic-not-delete-value: 'null'
+
+logging:
+  level:
+    org.fn.persistence: debug

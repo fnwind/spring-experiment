@@ -8,10 +8,7 @@ import org.apache.ibatis.mapping.SqlCommandType;
 import org.fn.core.common.Feature;
 import org.fn.core.feature.DisableFeatureAspect;
 import org.fn.persistence.entity.basic.IDataType;
-import org.fn.persistence.entity.basic.IEntity;
 import org.springframework.stereotype.Component;
-
-import java.sql.SQLException;
 
 /**
  * 保护系统数据不被修改或删除
