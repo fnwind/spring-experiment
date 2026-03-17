@@ -10,6 +10,7 @@ import org.fn.persistence.entity.basic.IModifier;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * @author chenshoufeng
@@ -27,9 +28,11 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
         identityUser.setId(0L);
         identityUser.setUsername("unknown");
 
-        if (originalObject instanceof ICreator) {
-            this.strictInsertFill(metaObject, Const.Entity.CREATOR_ID, Long.class, identityUser.getId());
-            this.strictInsertFill(metaObject, Const.Entity.CREATOR_NAME, String.class, identityUser.getUsername());
+        if (Objects.nonNull(identityUser)) {
+            if (originalObject instanceof ICreator) {
+                this.strictInsertFill(metaObject, Const.Entity.CREATOR_ID, Long.class, identityUser.getId());
+                this.strictInsertFill(metaObject, Const.Entity.CREATOR_NAME, String.class, identityUser.getUsername());
+            }
         }
 
         this.strictInsertFill(metaObject, Const.Entity.CREATE_TIME, LocalDateTime.class, LocalDateTime.now());
@@ -44,9 +47,11 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
         identityUser.setId(0L);
         identityUser.setUsername("unknown");
 
-        if (originalObject instanceof IModifier) {
-            this.strictInsertFill(metaObject, Const.Entity.MODIFIER_ID, Long.class, identityUser.getId());
-            this.strictInsertFill(metaObject, Const.Entity.MODIFIER_NAME, String.class, identityUser.getUsername());
+        if (Objects.nonNull(identityUser)) {
+            if (originalObject instanceof IModifier) {
+                this.strictInsertFill(metaObject, Const.Entity.MODIFIER_ID, Long.class, identityUser.getId());
+                this.strictInsertFill(metaObject, Const.Entity.MODIFIER_NAME, String.class, identityUser.getUsername());
+            }
         }
 
         this.strictUpdateFill(metaObject, Const.Entity.UPDATE_TIME, LocalDateTime.class, LocalDateTime.now());
