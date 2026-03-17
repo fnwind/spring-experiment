@@ -1,10 +1,13 @@
 package org.fn.web;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.fn.persistence.result.R;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -16,12 +19,37 @@ import java.util.Date;
 @RestController
 public class TestController {
     @GetMapping("/api/test")
-    public ResponseEntity<TestModel> test() {
-        return ResponseEntity.ok(TestModel.builder()
+    public R<TestModel> test() {
+        return R.success(TestModel.builder()
                 .id(100L)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(new Date())
                 .build());
+    }
+
+    @GetMapping("/test/{id}")
+    public String test(@RequestParam Integer id) {
+        return "ok";
+    }
+
+    @PostMapping("/user")
+    public String createUser(@RequestBody @Valid UserDTO user) {
+        return "ok";
+    }
+
+    @GetMapping("/search")
+    public String search(UserDTO query) {
+        return "ok";
+    }
+
+    @Data
+    public static class UserDTO {
+
+        @NotBlank(message = "用户名不能为空")
+        private String username;
+
+        @NotNull(message = "{common.r.success}")
+        private Integer age;
     }
 
     @Data

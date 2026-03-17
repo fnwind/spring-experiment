@@ -1,8 +1,6 @@
-package org.fn.persistence.database.query;
+package org.fn.persistence.query;
 
 import lombok.Data;
-import org.apache.poi.ss.formula.functions.T;
-import org.fn.persistence.entity.basic.IEntity;
 
 import java.util.*;
 import java.util.stream.Collectors;

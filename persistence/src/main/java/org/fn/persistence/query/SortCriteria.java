@@ -1,4 +1,4 @@
-package org.fn.persistence.database.query;
+package org.fn.persistence.query;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

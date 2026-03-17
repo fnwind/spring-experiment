@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  messages:
+    basename: i18n/messages
   flyway:
     enabled: false
   application:
@@ -20,3 +22,5 @@ notify:
     wechat:
       bots:
         aaa: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8d187f3d-aea5-422b-8789-37029328ceb2
+logging:
+  config: classpath:log4j2-spring.xml

@@ -1,9 +1,7 @@
-package org.fn.persistence.database.query;
+package org.fn.persistence.query;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.*;
-import lombok.experimental.Accessors;
-import org.apache.poi.ss.formula.functions.T;
 
 /**
  * @author chenshoufeng

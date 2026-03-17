@@ -57,4 +57,8 @@ public class Const {
     public static class SQL {
         public static final String OR_DELETED_IS_NOT_NULL = "or deleted is not null";
     }
+
+    public static class ErrorCode {
+        public static final String SUCCESS = "00000";
+    }
 }
