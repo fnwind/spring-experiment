@@ -37,6 +37,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         if (!(body instanceof R<?> r)) return body;
         if (StrUtil.isNotBlank(r.getMessage())) return r;
 
+        // 国际化翻译
         String message = messageSource.getMessage(
                 r.getI18n(),
                 r.getArgs(),
