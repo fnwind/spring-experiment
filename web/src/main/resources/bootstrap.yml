@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-experiment
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.yaml
+      - optional:nacos:${spring.application.name}.yaml?group=v1
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+      config:
+        enabled: false
+        namespace: 15c3dceb-cd08-4bce-81d0-c422edff4101
