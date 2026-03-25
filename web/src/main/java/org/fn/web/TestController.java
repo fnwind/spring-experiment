@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import org.fn.persistence.result.R;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -17,8 +16,9 @@ import java.util.Date;
  * @since 2026/3/6 下午4:32
  **/
 @RestController
+@RequestMapping("/api")
 public class TestController {
-    @GetMapping("/api/test")
+        @GetMapping("/test")
     public R<TestModel> test() {
         return R.success(TestModel.builder()
                 .id(100L)

@@ -1,22 +1,24 @@
-package org.fn.application.notify;
+package org.fn.persistence.cache;
 
 import lombok.RequiredArgsConstructor;
-import org.fn.application.notify.bot.BotService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
  * @author chenshoufeng
- * @since 2026/3/11 上午9:33
+ * @since 2026/3/17 下午8:01
  **/
+@Slf4j
 @Component
 @RequiredArgsConstructor
-public class NotifyTest {
-    private final BotService botService;
+public class CacheTest {
+    private final RedisService redisService;
 
     @EventListener(ApplicationReadyEvent.class)
     public void onReady() {
-        System.out.println("NotifyTest onReady");
+        redisService.value.set("testKey", "Hello, Redis!");
+        redisService.keys("*").forEach(System.out::println);
     }
 }

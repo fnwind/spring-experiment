@@ -43,28 +43,28 @@ public class DatabaseTest {
         //     accountMapper.insert(a);
         // });
 
-        PageQuery<?> pageQuery = new PageQuery<>(1, 10);
-        pageQuery.like("username", 0);
-
-        QueryWrapper<Account> queryWrapper = QueryGenerator.initQueryWrapper(Account.class, pageQuery);
-        Page<Account> accountPage = accountMapper.selectPage(pageQuery.toPage(), queryWrapper);
-        System.out.println(">>> accountPage(" + accountPage.getTotal() + "): " + accountPage);
-
-
-        // 前端请求
-        Query<DemoDTO> query = new Query<>();
-        query.likeRight("username", "a");
-        query.setData(new DemoDTO("管理员"));
-
-        // 后端处理
-        DemoDTO data = query.getData();
-        // ....
-        QueryWrapper<Account> wrapper = QueryGenerator.initQueryWrapper(Account.class, query);
-        wrapper.lambda().eq(StrUtil.isNotBlank(data.getName()), Account::getNickname, data.getName());
-
-        // 最终查询
-        List<Account> accounts = accountMapper.selectList(wrapper);
-        System.out.println(">>> accounts(" + accounts.size() + "): " + accounts);
+        // PageQuery<?> pageQuery = new PageQuery<>(1, 10);
+        // pageQuery.like("username", 0);
+        //
+        // QueryWrapper<Account> queryWrapper = QueryGenerator.initQueryWrapper(Account.class, pageQuery);
+        // Page<Account> accountPage = accountMapper.selectPage(pageQuery.toPage(), queryWrapper);
+        // System.out.println(">>> accountPage(" + accountPage.getTotal() + "): " + accountPage);
+        //
+        //
+        // // 前端请求
+        // Query<DemoDTO> query = new Query<>();
+        // query.likeRight("username", "a");
+        // query.setData(new DemoDTO("管理员"));
+        //
+        // // 后端处理
+        // DemoDTO data = query.getData();
+        // // ....
+        // QueryWrapper<Account> wrapper = QueryGenerator.initQueryWrapper(Account.class, query);
+        // wrapper.lambda().eq(StrUtil.isNotBlank(data.getName()), Account::getNickname, data.getName());
+        //
+        // // 最终查询
+        // List<Account> accounts = accountMapper.selectList(wrapper);
+        // System.out.println(">>> accounts(" + accounts.size() + "): " + accounts);
     }
 
     @Data
