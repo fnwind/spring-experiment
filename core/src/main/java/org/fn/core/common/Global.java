@@ -2,9 +2,7 @@ package org.fn.core.common;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import lombok.experimental.UtilityClass;
-import org.fn.core.model.IdentityUser;
-
-import java.util.Set;
+import org.fn.core.identity.IdentityUser;
 
 /**
  * @author chenshoufeng

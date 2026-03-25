@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.fn.core.common.Const;
 import org.fn.core.common.Global;
-import org.fn.core.model.IdentityUser;
+import org.fn.core.identity.IdentityUser;
 import org.fn.persistence.entity.basic.ICreator;
 import org.fn.persistence.entity.basic.IModifier;
 import org.springframework.stereotype.Component;
@@ -23,11 +23,6 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         Object originalObject = metaObject.getOriginalObject();
         IdentityUser identityUser = Global.User.get();
-        // TODO: DEBUG，用户功能完成后删除测试代码
-        identityUser = new IdentityUser();
-        identityUser.setId(0L);
-        identityUser.setUsername("unknown");
-
         if (Objects.nonNull(identityUser)) {
             if (originalObject instanceof ICreator) {
                 this.strictInsertFill(metaObject, Const.Entity.CREATOR_ID, Long.class, identityUser.getId());
@@ -42,11 +37,6 @@ public class MybatisMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         Object originalObject = metaObject.getOriginalObject();
         IdentityUser identityUser = Global.User.get();
-        // TODO: DEBUG，用户功能完成后删除测试代码
-        identityUser = new IdentityUser();
-        identityUser.setId(0L);
-        identityUser.setUsername("unknown");
-
         if (Objects.nonNull(identityUser)) {
             if (originalObject instanceof IModifier) {
                 this.strictInsertFill(metaObject, Const.Entity.MODIFIER_ID, Long.class, identityUser.getId());

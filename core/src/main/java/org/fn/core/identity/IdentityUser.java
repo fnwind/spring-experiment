@@ -1,4 +1,4 @@
-package org.fn.core.model;
+package org.fn.core.identity;
 
 import lombok.Data;
 import org.fn.core.common.AccountType;
